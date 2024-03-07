@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KartuPelajarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/siswa/edit/{id}', [SiswaController::class, 'edit']);
     Route::post('/siswa/edit/{id}', [SiswaController::class, 'update']);
     Route::delete('/siswa/delete/{id}', [SiswaController::class, 'destroy']);
+
+    Route::get('/kartu', [KartuPelajarController::class, 'index']);
+    Route::get('/kartu/add', [KartuPelajarController::class, 'create']);
+    Route::post('/kartu/add', [KartuPelajarController::class, 'store']);
+    Route::delete('/kartu/delete/{id}', [KartuPelajarController::class, 'destroy']);
 });
 
 require __DIR__ . '/auth.php';

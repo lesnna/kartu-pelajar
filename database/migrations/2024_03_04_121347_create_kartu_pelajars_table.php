@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('kartu_pelajars', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('siswa_id')->constrained();
+            $table->date('tgl_buat');
             $table->timestamps();
         });
     }

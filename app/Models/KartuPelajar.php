@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class KartuPelajar extends Model
 {
     use HasFactory;
+
+    protected $guarded;
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id');
+    }
 }
